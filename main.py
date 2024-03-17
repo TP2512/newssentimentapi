@@ -2,8 +2,9 @@ from endpoints import users, auth, news
 from fastapi import FastAPI
 from loggers import configure_logger
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 
-
+load_dotenv()
 # Configure logging
 logger = configure_logger()
 app = FastAPI()
