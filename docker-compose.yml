@@ -4,10 +4,14 @@ services:
     build: .
     ports:
       - 8000:8000
+    environment:
+      - PYTHONPATH=${PYTHONPATH}
     env_file:
       - ./.env
     depends_on:
       - mongodb
+    volumes:
+      - web_app_log:/code/logs
 
   mongodb:
     image: mongo:latest
@@ -18,3 +22,4 @@ services:
 
 volumes:
   mongodb_data:
+  web_app_log:
