@@ -2,6 +2,7 @@ from endpoints import users, auth, news
 from fastapi import FastAPI
 from loggers import configure_logger
 from fastapi.middleware.cors import CORSMiddleware
+from config import settings
 
 
 # Configure logging
@@ -23,6 +24,7 @@ logger.info("Web Application Started")
 app.include_router(users.router)
 app.include_router(auth.router)
 app.include_router(news.router)
+# print(settings.mongodb_url)
 
 
 @app.get("/")
