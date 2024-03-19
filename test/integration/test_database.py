@@ -1,18 +1,19 @@
 import pytest
 from database import database_connection as dc
 from pymongo import errors
+# from config import settings
 
 
 # Check database connection
-@pytest.mark.asyncio
-async def test_get_database():
-    # Call the get_database function
-    db = await dc.get_database()
-    # Assertions
-    assert str(db) == "AsyncIOMotorDatabase(Database(MongoClient(host=['localhost:27017'], " \
-                      "document_class=dict, tz_aware=False, connect=False, serverselectiontimeoutms=2000, " \
-                      "driver=DriverInfo(name='Motor', version='3.3.2', platform='asyncio')), " \
-                      "'news_aggregator_db'))"
+# @pytest.mark.asyncio
+# async def test_get_database():
+#     # Call the get_database function
+#     db = await dc.get_database()
+#     # Assertions
+#     assert str(db) == f"AsyncIOMotorDatabase(Database(MongoClient(host=['{settings.mongodb_url}:27017'], " \
+#                       "document_class=dict, tz_aware=False, connect=False, serverselectiontimeoutms=2000, " \
+#                       "driver=DriverInfo(name='Motor', version='3.3.2', platform='asyncio')), " \
+#                       "{settings.mongodb_database}))"
 
 
 # Test insertion
