@@ -21,12 +21,13 @@ spec:
             - secretRef:
                 name: my-secret
           volumeMounts:
-            - name: web-app-log
+            - name: api-data
               mountPath: /code/logs
-#          imagePullPolicy: Never
       volumes:
-        - name: web-app-log
-          emptyDir: {}
+        - name: api-data
+          persistentVolumeClaim:
+            claimName: api-pvc
+
 ---
 apiVersion: v1
 kind: Service
@@ -65,7 +66,9 @@ spec:
               mountPath: /data/db
       volumes:
         - name: mongodb-data
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: mongodb-pvc
+
 ---
 apiVersion: v1
 kind: Service
